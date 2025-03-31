@@ -49,7 +49,7 @@ Some of the tools and platforms I have worked with:
 
 ### Other References 
 Check out some of my other projects and research:
-* **Network Security & Packet Analysis** - [GitHub Link](https://github.com/pranabka/PranabKarki-Cybersecurity-Portfolio/blob/main/Network%20Port%20Scanning.md)
+* **Port Scanning** - [GitHub Link](https://github.com/pranabka/PranabKarki-Cybersecurity-Portfolio/blob/main/Network%20Port%20Scanning.md)
 * **SIEM & Threat Hunting with Microsoft Sentinel** - [GitHub Link](#)
 * **Python Automation for Cybersecurity** - [GitHub Link](#)
 
