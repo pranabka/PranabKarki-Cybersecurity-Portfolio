@@ -104,3 +104,10 @@ Stealth Scans (-sS): Useful for avoiding detection but may miss some services.
 Service Identification (-sV): Critical for understanding what’s running on open ports.
 
 Attack Surface Reduction: Closing/encrypting ports is more effective than relying on obscurity.
+
+
+## Connect
+
+**LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/pranab-karki/)
+
+**Personal Website**: [Website](https://pranabka.github.io/)
