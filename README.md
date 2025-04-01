@@ -11,10 +11,11 @@ I have hands-on experience working with security operations and analysis tools s
 Currently, I am **preparing for the CompTIA Security+ (SY0-701) certification** and actively seeking opportunities in **Cybersecurity, SOC, IT Support, and Security Operations**. My goal is to become a **Security Analyst**, leveraging my strong analytical abilities, problem-solving skills, and eagerness to learn.
 
 ## Portfolio
-> Some of my documents are in **PDF format** to accommodate advanced formatting, colorful presentations, and detailed explanations with screenshots.
 
 I have developed a cybersecurity portfolio showcasing various tasks and projects, including:
 * **Threat analysis and vulnerability assessment**
+* **Encrypting File System (EFS)**
+* **Portscanning**
 * **Security Operations and Incident Response**
 * **SIEM tools and log analysis**
 * **Packet capture and forensic analysis**
@@ -30,6 +31,8 @@ This portfolio aligns with roles such as:
 ### Skills  
 | Projects | Skills/Knowledge Gained | 
 | :--- |:---:|
+| [**Windows EFS Encryption & Data Recovery Agent Implementation**](https://github.com/pranabka/PranabKarki-Cybersecurity-Portfolio/blob/main/Windows-EFS-Encryption-Data-Recovery-Agent-Implementation.md) | `DRA`, `EFS` |
+| [**Port Scanning**](https://github.com/pranabka/PranabKarki-Cybersecurity-Portfolio/blob/main/Network%20Port%20Scanning.md) | `Kali`, `Nmap` |
 | **Cybersecurity Vulnerability Analysis** | `Threat Intelligence`, `NVD`, `KEV`, `CWE`, `Vulnerability Assessment` |
 | **Security Information and Event Management (SIEM)** | `Microsoft Sentinel`, `Splunk`, `Log Analysis`, `Threat Hunting` |
 | **Network Security & Packet Analysis** | `TCP/IP`, `Wireshark`, `IDS`, `Intrusion Detection`, `Suricata` |
@@ -40,18 +43,15 @@ This portfolio aligns with roles such as:
 Some of the tools and platforms I have worked with:
 * **Microsoft Sentinel** (SIEM & SOAR)
 * **Splunk** (Log analysis & threat detection)
+* **Powershell** (Automation and Configuration management)
+* **CMD** (execute commands and scripts)
+* **Active Directory** (Identity and Access management)
 * **Wireshark** (Packet analysis)
-* **Suricata** (IDS/IPS)
 * **SQL** (Database management)
 * **Python** (Automation & scripting)
 * **NVD, KEV, CWE** (Vulnerability research)
 * **MITRE ATT&CK Framework** (Threat modeling)
 
-### Other References 
-Check out some of my other projects and research:
-* **Port Scanning** - [GitHub Link](https://github.com/pranabka/PranabKarki-Cybersecurity-Portfolio/blob/main/Network%20Port%20Scanning.md)
-* **SIEM & Threat Hunting with Microsoft Sentinel** - [GitHub Link](#)
-* **Python Automation for Cybersecurity** - [GitHub Link](#)
 
 ## Certifications & Learning Path
 I have earned and am currently working toward the following certifications:
