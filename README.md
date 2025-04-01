@@ -33,8 +33,8 @@ This portfolio aligns with roles such as:
 | :--- |:---:|
 | [**Windows EFS Encryption & Data Recovery Agent Implementation**](https://github.com/pranabka/PranabKarki-Cybersecurity-Portfolio/blob/main/Windows-EFS-Encryption-Data-Recovery-Agent-Implementation.md) | `DRA`, `EFS` |
 | [**Port Scanning**](https://github.com/pranabka/PranabKarki-Cybersecurity-Portfolio/blob/main/Network%20Port%20Scanning.md) | `Kali`, `Nmap` |
-| **Cybersecurity Vulnerability Analysis** | `Threat Intelligence`, `NVD`, `KEV`, `CWE`, `Vulnerability Assessment` |
-| **Security Information and Event Management (SIEM)** | `Microsoft Sentinel`, `Splunk`, `Log Analysis`, `Threat Hunting` |
+| [**Cybersecurity Vulnerability Analysis**](https://github.com/pranabka/PranabKarki-Cybersecurity-Portfolio/blob/main/Vulnerability-Analysis-Python.md) | `Threat Intelligence`, `Python`, `NVD`, `KEV`, `CWE`, `Vulnerability Assessment` |
+| [**Python Log4Shell Analyis & Advisory**](https://github.com/pranabka/PranabKarki-Cybersecurity-Portfolio/blob/main/Python-Log4Shell-Analysis-Advisory.md) | `Python`, `Log4Shell`, `Log4j`, `RockYou` |
 | **Network Security & Packet Analysis** | `TCP/IP`, `Wireshark`, `IDS`, `Intrusion Detection`, `Suricata` |
 | **Incident Response & Risk Management** | `SOC`, `Incident Handling`, `Mitre ATT&CK`, `Risk Assessment` |
 | **Automation & Scripting for Security** | `Python`, `SIEM Automation`, `Data Parsing`, `Threat Intelligence Automation` |
