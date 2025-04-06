@@ -1,61 +1,88 @@
-# Group Policy – Windows Server 2019 Security Hardening
+# Group Policy Objects (GPOs) – Windows Server 2019 Security Hardening
 
-## Overview
+## Project Summary
 
-This project demonstrates the application of **Group Policy Objects (GPOs)** within a simulated enterprise environment to enhance security, automate configuration, and enforce compliance on Windows Server systems. 
+This lab demonstrates the implementation and enforcement of Group Policy Objects (GPOs) within an Active Directory environment using Windows Server 2019. Acting as a security analyst for Structureality Inc., I applied security configurations to a newly created Organizational Unit (OU) in alignment with enterprise security policies.
 
-As part of Structureality Inc.'s internal security team, I implemented and validated organizational-level policies targeting a new Sales division. This lab aligns with **CompTIA Security+ objectives 4.5 and 4.7**, emphasizing enterprise security enhancement and automation.
-
----
-
-## Tools & Technologies
-
-- **Windows Server 2019**
-- **Group Policy Management Console (GPMC)**
-- **Active Directory Users and Computers (ADUC)**
-- **Command Line Tools:** `gpresult`, `rsop`
-- **Scripting:** `.cmd` batch files, `.txt` scripts
-- **Virtual Environment:** DC10 (Domain Controller), PC10 (Client Machine)
+The focus areas include account policy hardening, folder provisioning, and automation of logon/logoff scripts using GPOs. This hands-on implementation maps directly to CompTIA Security+ objectives related to secure configuration and operational automation.
 
 ---
 
 ## Objectives
 
 - Establish a new Organizational Unit (OU)
-- Apply and test Group Policy Objects (GPOs)
+- Apply and configure linked Group Policy Objects (GPOs) with security settings
 - Define account lockout policies and file system preferences
-- Automate system behavior via logon/logoff scripts
+- Automate system behavior with logon and logoff scripts
 - Validate policy propagation using administrative tools
+- Demonstrate understanding of Active Directory and Group Policy structures
+
+
+---
+
+
+## Environment
+
+- **Domain Controller:** DC10 (Windows Server 2019)
+- **Client Machine:** PC10 (Windows Server 2019)
+- **Domain:** `ad.structureality.com`
+
+
+---
+
+
+## Tools & Technologies
+
+- **Windows Server 2019**
+- **Active Directory Users and Computers (ADUC)**
+- **Group Policy Management Console (GPMC)**
+- **Command Line Tools:** `gpresult`, `rsop`
+- **Scripting:** `.cmd` batch files, `.txt` scripts
+- **Network shares for script deployment**
+
 
 ---
 
 ## What I Did
 
-### Organizational Unit Setup
-- Created `SalesClients` OU in `ad.structureality.com`
-- Migrated users (`Dani`, `Cam`) and a client machine (`PC10`) into the new OU
-> - ![SalesClientsOU-in-ADUC](https://github.com/user-attachments/assets/bb533744-87d9-478d-9c5b-fe0bf3b15e09)
-### GPO Creation and Linking
-- Created `SalesPolicy` GPO linked to `SalesClients`
-- Defined key settings under:
+### 1. Organizational Unit Setup
+- Created `SalesClients` OU in `ad.structureality.com` domain
+- Migrated the following assets into the OU:
+  - User: `Dani`
+  - Admin: `Cam`
+  - Computer: `PC10`
+
+
+### 2. Group Policy Object (GPO) Creation and Linking
+- Created a GPO named `SalesPolicy` and linked it to the `SalesClients` OU.
+- Configured the following settings:
   - **Computer Configuration:** Account Lockout Policy (`3` invalid attempts)
-  - **User Configuration:** Folder creation (`C:\SalesDocs`)
+  - **User Configuration:** Folder Provisioning - Created `C:\SalesDocs` on all OU computers via user configuration.
 > - ![GPO-settings-in-GPMC](https://github.com/user-attachments/assets/0e7a720c-efd0-4d46-86db-92392fb444fd)
 > - ![GPO-settings](https://github.com/user-attachments/assets/bf357418-ad0c-4419-a1f6-556e9ccb49f8)
 > - ![SalesDocsFolder](https://github.com/user-attachments/assets/40a97dfd-cedb-4422-86ba-b2d5e9c66ae1)
-### Script Automation
-- Wrote basic `logon.txt` and `logoff.txt` messages
-- Converted and deployed scripts as `.cmd` files via a network share
-- Configured GPO to execute scripts at user logon/logoff
+
+
+### 3. Script Automation
+- Created and shared `\\DC10\scripts\` directory with full control permissions for all users.
+- Created:
+  - `logon.txt` – Displays a logon message
+  - `logoff.txt` – Displays a logoff message
+  - `scriptlogon.cmd` – Echoes contents of `logon.txt`
+  - `scriptlogoff.cmd` – Echoes contents of `logoff.txt`
+- Scripts deployed via GPO using UNC path references to support distributed application.
 > - ![Script-creation](https://github.com/user-attachments/assets/1af50729-34fc-45e9-826f-a52a78152a12)
 > - ![Scriptcmd](https://github.com/user-attachments/assets/2d6b958a-887d-4025-8a14-db56f90b9743)
 > - ![LogOnGP](https://github.com/user-attachments/assets/7b9f87db-db60-4494-8c27-c5faa47ba806)
 
 
-### Policy Validation
-- Used `gpresult /r` to verify policy enforcement
-- Ran `rsop.msc` to confirm policy source and status
-- Verified `SalesDocs` folder creation and script execution
+### 4. Policy Validation
+- Verified user policy application using `gpresult /r` for both standard and admin users.
+- Used `rsop.msc` to inspect the effective policy and confirm:
+  - `SalesPolicy` as the source GPO for account lockout policies
+  - Folder provisioning was successful
+- Observed expected behavior upon logon/logoff:
+  - Notepad opens with appropriate messages based on user action
 > - ![gpresult-r-output](https://github.com/user-attachments/assets/697b52cf-4fc8-4f10-9c07-9125f1d221fa)
 > - ![gpresult-r-output2](https://github.com/user-attachments/assets/dc65cc2a-25d6-4fa4-ac42-4a92e5383d83)
 > - ![rsop-policy-report](https://github.com/user-attachments/assets/f88cc824-1f99-40fd-9f2c-da37feb87bc5)
@@ -88,7 +115,7 @@ As part of Structureality Inc.'s internal security team, I implemented and valid
 
 ---
 
-## Key Learnings
+## Key Takeaways
 
 - Reinforced how **GPOs enforce security compliance** without manual user intervention
 - Practiced **centralized administration** of scripts and system configurations
@@ -99,6 +126,7 @@ As part of Structureality Inc.'s internal security team, I implemented and valid
 ## Future Improvements
 
 - Implement **PowerShell-based logon/logoff scripts** for more dynamic automation
+- Extend the GPO to include additional security settings (e.g., Windows Firewall, audit policy).
 - Use **WMI filters** to target specific system types within the OU
 - Integrate **security baselines** from Microsoft or CIS for production-like hardening
 - Configure **software deployment policies** to push vetted apps to Sales division machines
@@ -134,3 +162,10 @@ As part of Structureality Inc.'s internal security team, I implemented and valid
 **A:** Resultant Set of Policy (RSOP)
 
 ---
+
+
+## Connect with Me
+
+**LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/pranab-karki/)
+
+**Personal Website**: [Website](https://pranabka.github.io/)
